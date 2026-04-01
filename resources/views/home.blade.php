@@ -5,89 +5,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Git Commands Learning Hub</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .container {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-            padding: 50px;
-            text-align: center;
-        }
-
-        h1 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 2.5em;
-        }
-
-        p {
-            color: #666;
-            font-size: 1.1em;
-            margin-bottom: 30px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        button {
-            padding: 12px 30px;
-            font-size: 1em;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .btn-primary {
-            background: #667eea;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: scale(1.05);
-        }
-
-        .btn-secondary {
-            background: #f0f0f0;
-            color: #333;
-        }
-
-        .btn-secondary:hover {
-            transform: scale(1.05);
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
 <body>
-    <div class="container">
-        <h1>🚀 Git Commands Learning Hub</h1>
-        <p>Master Git version control and become a pro developer</p>
-        <div class="buttons">
-            <button class="btn-primary">Get Started</button>
-            <button class="btn-secondary">Learn Commands</button>
-        </div>
-    </div>
+    <div class="page-bg"></div>
+
+    <main class="container">
+        <header class="topbar">
+            <a class="brand" href="#home">Git Learning Hub</a>
+            <nav class="nav-links">
+                <a href="#commands">Commands</a>
+                <a href="#workflow">Workflow</a>
+                <a href="https://git-scm.com/doc" target="_blank" rel="noopener noreferrer">Docs</a>
+            </nav>
+        </header>
+
+        <section id="home" class="hero">
+            <p class="hero-tag">Hands-on Git practice for beginners</p>
+            <h1>Build confidence with Git, one command at a time</h1>
+            <p class="hero-copy">
+                Learn the day-to-day Git workflow with practical examples and clean command snippets.
+                Start with the basics, then move to branching and collaboration.
+            </p>
+
+            <div class="buttons">
+                <a class="btn btn-primary" href="#commands">Start Learning</a>
+                <a class="btn btn-secondary" href="#workflow">See Workflow</a>
+            </div>
+        </section>
+
+        <section id="commands" class="section">
+            <h2>Essential Commands</h2>
+            <div class="cards-grid">
+                <article class="card">
+                    <h3>Initialize Repo</h3>
+                    <code>git init</code>
+                    <p>Creates a new local repository in your project folder.</p>
+                </article>
+                <article class="card">
+                    <h3>Track Changes</h3>
+                    <code>git add .</code>
+                    <p>Adds all modified files to the staging area.</p>
+                </article>
+                <article class="card">
+                    <h3>Save Snapshot</h3>
+                    <code>git commit -m "message"</code>
+                    <p>Records staged changes with a meaningful commit message.</p>
+                </article>
+                <article class="card">
+                    <h3>Sync Remote</h3>
+                    <code>git push origin main</code>
+                    <p>Uploads local commits to your remote branch.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="workflow" class="section workflow">
+            <h2>Simple Daily Workflow</h2>
+            <ol>
+                <li>Pull latest updates: <code>git pull origin main</code></li>
+                <li>Create branch: <code>git checkout -b feature/my-change</code></li>
+                <li>Make changes and commit: <code>git add . && git commit -m "feat: update"</code></li>
+                <li>Push branch: <code>git push origin feature/my-change</code></li>
+            </ol>
+        </section>
+
+        <footer class="footer">
+            <p>Built with Laravel • Keep practicing, keep shipping.</p>
+        </footer>
+    </main>
 </body>
 
 </html>
