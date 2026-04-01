@@ -13,8 +13,10 @@
 
     <main class="container">
         <header class="topbar">
-            <a class="brand" href="#home">Git Learning Hub</a>
+            <a class="brand" href="{{ route('home') }}">Git Learning Hub</a>
             <nav class="nav-links">
+                <a href="{{ route('about') }}">About</a>
+                <a href="{{ route('contact') }}">Contact</a>
                 <a href="#commands">Commands</a>
                 <a href="#workflow">Workflow</a>
                 <a href="https://git-scm.com/doc" target="_blank" rel="noopener noreferrer">Docs</a>
@@ -31,7 +33,8 @@
 
             <div class="buttons">
                 <a class="btn btn-primary" href="#commands">Start Learning</a>
-                <a class="btn btn-secondary" href="#workflow">See Workflow</a>
+                <a class="btn btn-secondary" href="{{ route('about') }}">About Project</a>
+                <a class="btn btn-secondary" href="{{ route('contact') }}">Contact</a>
             </div>
         </section>
 
