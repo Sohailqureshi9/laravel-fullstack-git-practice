@@ -67,7 +67,7 @@
         </section>
 
         <section id="workflow" class="section workflow">
-            <h2>Simple Daily Workflow</h2>
+            <h2>Simple Daily Workflow Daily Practice</h2>
             <ol>
                 <li>Pull latest updates: <code>git pull origin main</code></li>
                 <li>Create branch: <code>git checkout -b feature/my-change</code></li>
