@@ -33,6 +33,7 @@
 
             <div class="buttons">
 
+
                 <a class="btn btn-primary" href="#commands">Start Learnings </a>
                 <a class="btn btn-secondary" href="{{ route('about') }}">About Project</a>
                 <a class="btn btn-secondary" href="{{ route('contact') }}">Contact</a>
