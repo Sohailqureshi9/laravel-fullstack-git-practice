@@ -79,7 +79,11 @@
             <h2>Testing</h2>
             <p>Collaborate using Git branches and pull requests. <br>
 
+
                 Team commits merged and reviewed.</p>
+
+                <p>Learning GitHub PR creation and code review process.</p>
+                </p>
         </section>
         <footer class="footer">
             <p>Built with Laravel • Keep practicing, keep shipping.</p>
