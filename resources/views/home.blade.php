@@ -75,7 +75,12 @@
                 <li>Push branch: <code>git push origin feature/my-change</code></li>
             </ol>
         </section>
+        <section>
+            <h2>Testing</h2>
+            <p>Collaborate using Git branches and pull requests. <br>
 
+                Team commits merged and reviewed.</p>
+        </section>
         <footer class="footer">
             <p>Built with Laravel • Keep practicing, keep shipping.</p>
         </footer>
