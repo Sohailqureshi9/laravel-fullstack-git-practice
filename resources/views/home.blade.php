@@ -82,7 +82,7 @@
 
                 Team commits merged and reviewed.</p>
 
-                <p>Learning GitHub PR creation and code review process.</p>
+                <p>Learning GitHub PR creation and code review process with a real-world example.</p>
                 </p>
         </section>
         <footer class="footer">
