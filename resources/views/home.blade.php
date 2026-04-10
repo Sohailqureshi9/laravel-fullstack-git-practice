@@ -189,6 +189,70 @@
                 Follow the exact commands in order and verify with <code>git status</code> after each fix.
             </p>
 
+            <div class="scenario-playbook">
+                <h3>Scenario Playbook: Problem to Solution</h3>
+                <div class="scenario-grid">
+                    <article class="scenario-card">
+                        <p class="scenario-label">Scenario 1</p>
+                        <h4>Push Rejected While Pushing Feature Branch</h4>
+                        <p><strong>Problem:</strong> You see non-fast-forward error on <code>git push</code>.</p>
+                        <p><strong>Why:</strong> Remote branch has new commits you do not have locally.</p>
+                        <ol class="scenario-steps">
+                            <li>Check current branch: <code>git branch</code>.</li>
+                            <li>Pull latest changes: <code>git pull origin your-branch</code>.</li>
+                            <li>If conflicts appear, resolve files and run <code>git add .</code>.</li>
+                            <li>Commit conflict resolution: <code>git commit -m "resolve: sync branch"</code>.</li>
+                            <li>Push again: <code>git push origin your-branch</code>.</li>
+                        </ol>
+                    </article>
+
+                    <article class="scenario-card">
+                        <p class="scenario-label">Scenario 2</p>
+                        <h4>Merge Conflict After Pulling Main</h4>
+                        <p><strong>Problem:</strong> Pull/merge stopped with conflict markers.</p>
+                        <p><strong>Why:</strong> Same lines edited in both branches.</p>
+                        <ol class="scenario-steps">
+                            <li>List conflicted files: <code>git status</code>.</li>
+                            <li>Open files and remove <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> markers by selecting
+                                final code.</li>
+                            <li>Stage resolved files: <code>git add .</code>.</li>
+                            <li>Complete merge: <code>git commit -m "resolve: merge conflict in home page"</code>.</li>
+                            <li>Verify history: <code>git log --oneline --graph -5</code>.</li>
+                        </ol>
+                    </article>
+
+                    <article class="scenario-card">
+                        <p class="scenario-label">Scenario 3</p>
+                        <h4>Accidentally Committed on Main Branch</h4>
+                        <p><strong>Problem:</strong> Work was committed directly to <code>main</code>.</p>
+                        <p><strong>Why:</strong> Feature branch was not created before commit.</p>
+                        <ol class="scenario-steps">
+                            <li>Create new branch from current commit:
+                                <code>git checkout -b feature/move-main-commit</code>.</li>
+                            <li>Push branch: <code>git push origin feature/move-main-commit</code>.</li>
+                            <li>Go back to main and undo wrong commit safely: <code>git checkout main</code> then
+                                <code>git revert HEAD</code>.</li>
+                            <li>Open PR from your new feature branch.</li>
+                        </ol>
+                    </article>
+
+                    <article class="scenario-card">
+                        <p class="scenario-label">Scenario 4</p>
+                        <h4>Lost Commit After Reset or Rebase</h4>
+                        <p><strong>Problem:</strong> A previous commit is no longer visible in branch log.</p>
+                        <p><strong>Why:</strong> History was rewritten or branch pointer moved.</p>
+                        <ol class="scenario-steps">
+                            <li>Find old commit from reference log: <code>git reflog</code>.</li>
+                            <li>Create rescue branch from lost commit hash:
+                                <code>git checkout -b rescue/lost-work &lt;hash&gt;</code>.</li>
+                            <li>Cherry-pick required commit into active branch: <code>git checkout your-branch</code>
+                                then <code>git cherry-pick &lt;hash&gt;</code>.</li>
+                            <li>Push recovered work: <code>git push origin your-branch</code>.</li>
+                        </ol>
+                    </article>
+                </div>
+            </div>
+
             <div class="issue-grid">
                 <article class="issue-card">
                     <h3>Push Rejected (non-fast-forward)</h3>
