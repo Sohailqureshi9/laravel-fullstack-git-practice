@@ -24,19 +24,30 @@
         </header>
 
         <section id="home" class="hero">
-            <p class="hero-tag">Hands-on Git practice for beginners</p>
-            <h1>Build confidence with Git, one command at a time</h1>
-            <p class="hero-copy">
-                Learn the day-to-day Git workflow with practical examples and clean command snippets.
-                Start with the basics, then move to branching and collaboration.
-            </p>
+            <div class="hero-layout">
+                <div>
+                    <p class="hero-tag">Hands-on Git practice for beginners</p>
+                    <h1>Build confidence with Git, one command at a time</h1>
+                    <p class="hero-copy">
+                        Learn practical Git workflows through clear examples and copy-ready commands.
+                        Start with the fundamentals, then level up with branching, pull requests, and team habits.
+                    </p>
 
-            <div class="buttons">
+                    <div class="buttons">
+                        <a class="btn btn-primary" href="#commands">Start Learning</a>
+                        <a class="btn btn-secondary" href="{{ route('about') }}">About Project</a>
+                        <a class="btn btn-secondary" href="{{ route('contact') }}">Contact</a>
+                    </div>
+                </div>
 
-
-                <a class="btn btn-primary" href="#commands">Start Learnings </a>
-                <a class="btn btn-secondary" href="{{ route('about') }}">About Project</a>
-                <a class="btn btn-secondary" href="{{ route('contact') }}">Contact</a>
+                <aside class="hero-panel" aria-label="Learning pace overview">
+                    <h2>Your Learning Pace</h2>
+                    <ul class="hero-list">
+                        <li><span>Week 1</span><strong>Git basics and commits</strong></li>
+                        <li><span>Week 2</span><strong>Branching and merges</strong></li>
+                        <li><span>Week 3</span><strong>Pull requests and reviews</strong></li>
+                    </ul>
+                </aside>
             </div>
         </section>
 
@@ -63,11 +74,21 @@
                     <code>git push origin main</code>
                     <p>Uploads local commits to your remote branch.</p>
                 </article>
+                <article class="card">
+                    <h3>Check State</h3>
+                    <code>git status</code>
+                    <p>Shows changed, staged, and untracked files before you commit.</p>
+                </article>
+                <article class="card">
+                    <h3>Review History</h3>
+                    <code>git log --oneline --graph --decorate</code>
+                    <p>Visualizes commit history to help you understand branch progress.</p>
+                </article>
             </div>
         </section>
 
         <section id="workflow" class="section workflow">
-            <h2>Simple Daily Workflow Daily Practice</h2>
+            <h2>Simple Daily Workflow</h2>
             <ol>
                 <li>Pull latest updates: <code>git pull origin main</code></li>
                 <li>Create branch: <code>git checkout -b feature/my-change</code></li>
@@ -75,16 +96,21 @@
                 <li>Push branch: <code>git push origin feature/my-change</code></li>
             </ol>
         </section>
-        <section>
-            <h2>Testing</h2>
-            <p>Collaborate using Git branches and pull requests. <br>
 
-
-                Team commits merged and reviewed.</p>
-
-                <p>Learning GitHub PR creation and code review process.</p>
-                </p>
+        <section class="section team-practice">
+            <h2>Team Practice Checklist</h2>
+            <p>
+                Build healthy collaboration habits with small, frequent commits and thoughtful pull requests.
+                This creates cleaner history and smoother reviews.
+            </p>
+            <ul class="list">
+                <li>Write concise commit messages with purpose and scope.</li>
+                <li>Open pull requests early to gather feedback sooner.</li>
+                <li>Review code with context, tests, and clear suggestions.</li>
+                <li>Merge only after approvals and successful checks.</li>
+            </ul>
         </section>
+
         <footer class="footer">
             <p>Built with Laravel • Keep practicing, keep shipping.</p>
         </footer>
