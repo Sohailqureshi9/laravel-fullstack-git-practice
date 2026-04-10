@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Git Commands Learning Hub</title>
+    <title>Git Learning Hub | Daily Practice Guide</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
@@ -19,6 +19,7 @@
                 <a href="{{ route('contact') }}">Contact</a>
                 <a href="#commands">Commands</a>
                 <a href="#workflow">Workflow</a>
+                <a href="#roadmap">Roadmap</a>
                 <a href="https://git-scm.com/doc" target="_blank" rel="noopener noreferrer">Docs</a>
             </nav>
         </header>
@@ -47,6 +48,10 @@
                         <li><span>Week 2</span><strong>Branching and merges</strong></li>
                         <li><span>Week 3</span><strong>Pull requests and reviews</strong></li>
                     </ul>
+                    <a class="inline-link" href="https://git-scm.com/book/en/v2" target="_blank"
+                        rel="noopener noreferrer">
+                        Open free Git book
+                    </a>
                 </aside>
             </div>
         </section>
@@ -95,6 +100,27 @@
                 <li>Make changes and commit: <code>git add . && git commit -m "feat: update"</code></li>
                 <li>Push branch: <code>git push origin feature/my-change</code></li>
             </ol>
+        </section>
+
+        <section id="roadmap" class="section roadmap">
+            <h2>30-Minute Daily Roadmap</h2>
+            <div class="roadmap-grid">
+                <article class="roadmap-step">
+                    <span>05 min</span>
+                    <h3>Inspect repository</h3>
+                    <p>Start with <code>git status</code> and <code>git log --oneline</code> to get context.</p>
+                </article>
+                <article class="roadmap-step">
+                    <span>15 min</span>
+                    <h3>Make one focused change</h3>
+                    <p>Edit a small piece, stage only relevant files, and commit clearly.</p>
+                </article>
+                <article class="roadmap-step">
+                    <span>10 min</span>
+                    <h3>Push and review</h3>
+                    <p>Push branch, open PR, and self-review before requesting feedback.</p>
+                </article>
+            </div>
         </section>
 
         <section class="section team-practice">
