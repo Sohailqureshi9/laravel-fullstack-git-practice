@@ -513,6 +513,8 @@ git push origin fix/navbar-spacing</code></pre>
                     const hashId = window.location.hash.replace('#', '');
                     if (hashId) {
                         setActiveLink(hashId);
+                    } else if (sectionEntries.length > 0) {
+                        setActiveLink(sectionEntries[0].target.id);
                     }
                 });
             }
@@ -545,11 +547,15 @@ git push origin fix/navbar-spacing</code></pre>
                 textArea.setAttribute('readonly', '');
                 textArea.style.position = 'fixed';
                 textArea.style.left = '-9999px';
+                textArea.style.top = '0';
                 document.body.appendChild(textArea);
                 textArea.select();
 
                 try {
-                    document.execCommand('copy');
+                    const copied = document.execCommand('copy');
+                    if (!copied) {
+                        throw new Error('Copy command failed');
+                    }
                 } finally {
                     document.body.removeChild(textArea);
                 }
