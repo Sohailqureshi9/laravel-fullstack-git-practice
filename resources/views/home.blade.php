@@ -21,6 +21,7 @@
                 <a href="#commands">Commands</a>
                 <a href="#workflow">Workflow</a>
                 <a href="#projects">Projects</a>
+                <a href="#troubleshooting">Troubleshooting</a>
                 <a href="https://git-scm.com/doc" target="_blank" rel="noopener noreferrer">Docs</a>
             </nav>
         </header>
@@ -178,6 +179,76 @@
                     <h3>Recovery Drill</h3>
                     <p>Intentionally break history and recover using reflog, reset, and cherry-pick.</p>
                 </article>
+            </div>
+        </section>
+
+        <section id="troubleshooting" class="section troubleshooting">
+            <h2>Common Git Problems and How to Resolve Them</h2>
+            <p class="section-intro">
+                Use this section when push, pull, merge, or commit does not work as expected.
+                Follow the exact commands in order and verify with <code>git status</code> after each fix.
+            </p>
+
+            <div class="issue-grid">
+                <article class="issue-card">
+                    <h3>Push Rejected (non-fast-forward)</h3>
+                    <p><strong>Issue:</strong> Remote branch has new commits and your push is blocked.</p>
+                    <p><strong>Fix:</strong> Pull latest changes, resolve conflicts if any, then push again.</p>
+                    <pre><code>git pull origin main
+git push origin your-branch</code></pre>
+                </article>
+
+                <article class="issue-card">
+                    <h3>Merge Conflict During Pull or Merge</h3>
+                    <p><strong>Issue:</strong> Same lines were edited in two branches.</p>
+                    <p><strong>Fix:</strong> Open conflicted files, choose final code, then add and commit.</p>
+                    <pre><code>git status
+git add .
+git commit -m "resolve: merge conflict"</code></pre>
+                </article>
+
+                <article class="issue-card">
+                    <h3>Committed to Wrong Branch</h3>
+                    <p><strong>Issue:</strong> You committed on main by mistake.</p>
+                    <p><strong>Fix:</strong> Create a new branch from current state and move forward safely.</p>
+                    <pre><code>git checkout -b feature/fix-commit-location
+git push origin feature/fix-commit-location</code></pre>
+                </article>
+
+                <article class="issue-card">
+                    <h3>Wrong File Added to Commit</h3>
+                    <p><strong>Issue:</strong> Sensitive or unwanted file is staged.</p>
+                    <p><strong>Fix:</strong> Unstage file, update .gitignore if needed, then recommit.</p>
+                    <pre><code>git restore --staged path/to/file
+git add .
+git commit -m "fix: clean staged files"</code></pre>
+                </article>
+
+                <article class="issue-card">
+                    <h3>Need to Undo Last Commit (Not Pushed)</h3>
+                    <p><strong>Issue:</strong> Last commit message or content is wrong.</p>
+                    <p><strong>Fix:</strong> Keep file changes but remove commit, then commit again correctly.</p>
+                    <pre><code>git reset --soft HEAD~1
+git commit -m "feat: corrected commit"</code></pre>
+                </article>
+
+                <article class="issue-card">
+                    <h3>Recover Lost Work</h3>
+                    <p><strong>Issue:</strong> Commit or branch looks missing after reset/rebase.</p>
+                    <p><strong>Fix:</strong> Use reflog to find old HEAD and restore from hash.</p>
+                    <pre><code>git reflog
+git checkout &lt;commit-hash&gt;</code></pre>
+                </article>
+            </div>
+
+            <div class="safe-flow">
+                <h3>Safe Recovery Checklist</h3>
+                <ul class="list compact-list">
+                    <li>Never panic and never force push on shared branches without team approval.</li>
+                    <li>Run <code>git status</code> first to understand current state.</li>
+                    <li>Use <code>git log --oneline --graph</code> to verify history before big actions.</li>
+                    <li>When unsure, create a backup branch: <code>git checkout -b backup/my-current-state</code>.</li>
+                </ul>
             </div>
         </section>
 
