@@ -18,6 +18,7 @@
                 <a href="{{ route('about') }}">About</a>
                 <a href="{{ route('contact') }}">Contact</a>
                 <a href="#path">Path</a>
+                <a href="#month-roadmap">1-Month Plan</a>
                 <a href="#commands">Commands</a>
                 <a href="#workflow">Workflow</a>
                 <a href="#projects">Projects</a>
@@ -52,8 +53,8 @@
                             <span>Beginner to pro</span>
                         </div>
                         <div>
-                            <strong>4 Projects</strong>
-                            <span>Hands-on practice</span>
+                            <strong>30 Days</strong>
+                            <span>Complete roadmap</span>
                         </div>
                     </div>
                 </div>
@@ -106,6 +107,83 @@
                         <li>Automate quality checks before pushing.</li>
                     </ul>
                 </article>
+            </div>
+        </section>
+
+        <section id="month-roadmap" class="section month-roadmap">
+            <h2>Complete 1-Month Git Roadmap</h2>
+            <p class="section-intro">
+                Study 45 to 60 minutes daily. Each week has a focus, clear output, and recommended source.
+                Follow this order exactly to move from beginner to confident team contributor in 30 days.
+            </p>
+
+            <div class="month-grid">
+                <article class="month-card">
+                    <p class="month-badge">Week 1 • Days 1-7</p>
+                    <h3>Git Basics and Local Workflow</h3>
+                    <p><strong>Daily Time:</strong> 45 min</p>
+                    <ul class="list compact-list">
+                        <li>Learn: <code>git init</code>, <code>git clone</code>, <code>git status</code>,
+                            <code>git add</code>, <code>git commit</code>.</li>
+                        <li>Practice: Make 2 small commits daily in a practice repo.</li>
+                        <li>Goal: Understand staging area and commit history.</li>
+                        <li>Learn from: <a class="inline-link" href="https://git-scm.com/docs/gittutorial"
+                                target="_blank" rel="noopener noreferrer">Git Tutorial</a>.</li>
+                    </ul>
+                </article>
+
+                <article class="month-card">
+                    <p class="month-badge">Week 2 • Days 8-14</p>
+                    <h3>Branches, Merge, and Pull Workflow</h3>
+                    <p><strong>Daily Time:</strong> 60 min</p>
+                    <ul class="list compact-list">
+                        <li>Learn: <code>git checkout -b</code>, <code>git pull</code>, <code>git merge</code>,
+                            <code>git branch -d</code>.</li>
+                        <li>Practice: Build 3 mini features in separate branches.</li>
+                        <li>Goal: Merge without fear and resolve simple conflicts.</li>
+                        <li>Learn from: <a class="inline-link"
+                                href="https://www.atlassian.com/git/tutorials/using-branches" target="_blank"
+                                rel="noopener noreferrer">Atlassian Branch Guide</a>.</li>
+                    </ul>
+                </article>
+
+                <article class="month-card">
+                    <p class="month-badge">Week 3 • Days 15-21</p>
+                    <h3>Remote Collaboration and Pull Requests</h3>
+                    <p><strong>Daily Time:</strong> 60 min</p>
+                    <ul class="list compact-list">
+                        <li>Learn: <code>git push</code>, PR flow, review updates, branch cleanup.</li>
+                        <li>Practice: Open 3 pull requests with meaningful descriptions.</li>
+                        <li>Goal: Collaborate like a real team member.</li>
+                        <li>Learn from: <a class="inline-link" href="https://docs.github.com/en/pull-requests"
+                                target="_blank" rel="noopener noreferrer">GitHub PR Docs</a>.</li>
+                    </ul>
+                </article>
+
+                <article class="month-card">
+                    <p class="month-badge">Week 4 • Days 22-30</p>
+                    <h3>Advanced Recovery and Pro Habits</h3>
+                    <p><strong>Daily Time:</strong> 60 min</p>
+                    <ul class="list compact-list">
+                        <li>Learn: <code>git reflog</code>, <code>git restore</code>, <code>git reset --soft</code>,
+                            <code>git cherry-pick</code>.</li>
+                        <li>Practice: Solve 5 intentional mistakes from troubleshooting scenarios.</li>
+                        <li>Goal: Recover safely from common Git problems.</li>
+                        <li>Learn from: <a class="inline-link"
+                                href="https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection" target="_blank"
+                                rel="noopener noreferrer">Git Revision Tools</a>.</li>
+                    </ul>
+                </article>
+            </div>
+
+            <div class="month-outcome">
+                <h3>Expected Result After 30 Days</h3>
+                <ul class="list compact-list">
+                    <li>You can work confidently with branches and pull requests.</li>
+                    <li>You can resolve push, merge, and commit mistakes on your own.</li>
+                    <li>You can explain a clean Git workflow for team projects.</li>
+                    <li>You will have a mini portfolio of Git practice repositories.</li>
+                </ul>
             </div>
         </section>
 
@@ -228,10 +306,12 @@
                         <p><strong>Why:</strong> Feature branch was not created before commit.</p>
                         <ol class="scenario-steps">
                             <li>Create new branch from current commit:
-                                <code>git checkout -b feature/move-main-commit</code>.</li>
+                                <code>git checkout -b feature/move-main-commit</code>.
+                            </li>
                             <li>Push branch: <code>git push origin feature/move-main-commit</code>.</li>
                             <li>Go back to main and undo wrong commit safely: <code>git checkout main</code> then
-                                <code>git revert HEAD</code>.</li>
+                                <code>git revert HEAD</code>.
+                            </li>
                             <li>Open PR from your new feature branch.</li>
                         </ol>
                     </article>
@@ -244,7 +324,8 @@
                         <ol class="scenario-steps">
                             <li>Find old commit from reference log: <code>git reflog</code>.</li>
                             <li>Create rescue branch from lost commit hash:
-                                <code>git checkout -b rescue/lost-work &lt;hash&gt;</code>.</li>
+                                <code>git checkout -b rescue/lost-work &lt;hash&gt;</code>.
+                            </li>
                             <li>Cherry-pick required commit into active branch: <code>git checkout your-branch</code>
                                 then <code>git cherry-pick &lt;hash&gt;</code>.</li>
                             <li>Push recovered work: <code>git push origin your-branch</code>.</li>
