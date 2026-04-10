@@ -124,7 +124,8 @@
                     <p><strong>Daily Time:</strong> 45 min</p>
                     <ul class="list compact-list">
                         <li>Learn: <code>git init</code>, <code>git clone</code>, <code>git status</code>,
-                            <code>git add</code>, <code>git commit</code>.</li>
+                            <code>git add</code>, <code>git commit</code>.
+                        </li>
                         <li>Practice: Make 2 small commits daily in a practice repo.</li>
                         <li>Goal: Understand staging area and commit history.</li>
                         <li>Learn from: <a class="inline-link" href="https://git-scm.com/docs/gittutorial"
@@ -138,7 +139,8 @@
                     <p><strong>Daily Time:</strong> 60 min</p>
                     <ul class="list compact-list">
                         <li>Learn: <code>git checkout -b</code>, <code>git pull</code>, <code>git merge</code>,
-                            <code>git branch -d</code>.</li>
+                            <code>git branch -d</code>.
+                        </li>
                         <li>Practice: Build 3 mini features in separate branches.</li>
                         <li>Goal: Merge without fear and resolve simple conflicts.</li>
                         <li>Learn from: <a class="inline-link"
@@ -166,7 +168,8 @@
                     <p><strong>Daily Time:</strong> 60 min</p>
                     <ul class="list compact-list">
                         <li>Learn: <code>git reflog</code>, <code>git restore</code>, <code>git reset --soft</code>,
-                            <code>git cherry-pick</code>.</li>
+                            <code>git cherry-pick</code>.
+                        </li>
                         <li>Practice: Solve 5 intentional mistakes from troubleshooting scenarios.</li>
                         <li>Goal: Recover safely from common Git problems.</li>
                         <li>Learn from: <a class="inline-link"
@@ -439,6 +442,106 @@ git push origin fix/navbar-spacing</code></pre>
             <p class="footer-note">Updated {{ date('Y') }} • Version-ready workflow habits for beginner teams.</p>
         </footer>
     </main>
+
+    <div id="copy-toast" class="copy-toast" role="status" aria-live="polite"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+            const sectionEntries = navLinks
+                .map((link) => {
+                    const target = document.querySelector(link.getAttribute('href'));
+                    return target ? {
+                        link,
+                        target
+                    } : null;
+                })
+                .filter(Boolean);
+
+            const setActiveLink = (id) => {
+                navLinks.forEach((link) => {
+                    const isActive = link.getAttribute('href') === `#${id}`;
+                    link.classList.toggle('active-link', isActive);
+                });
+            };
+
+            if (sectionEntries.length > 0) {
+                const observer = new IntersectionObserver((entries) => {
+                    const visible = entries
+                        .filter((entry) => entry.isIntersecting)
+                        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+                    if (visible) {
+                        setActiveLink(visible.target.id);
+                    }
+                }, {
+                    rootMargin: '-32% 0px -55% 0px',
+                    threshold: [0.2, 0.45, 0.7]
+                });
+
+                sectionEntries.forEach((entry) => observer.observe(entry.target));
+
+                const initialHash = window.location.hash.replace('#', '');
+                if (initialHash) {
+                    setActiveLink(initialHash);
+                } else {
+                    setActiveLink(sectionEntries[0].target.id);
+                }
+            }
+
+            const toast = document.getElementById('copy-toast');
+            let toastTimer;
+
+            const showToast = (message) => {
+                if (!toast) {
+                    return;
+                }
+
+                toast.textContent = message;
+                toast.classList.add('show');
+
+                clearTimeout(toastTimer);
+                toastTimer = setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 1400);
+            };
+
+            document.querySelectorAll('pre').forEach((pre) => {
+                const codeEl = pre.querySelector('code');
+                if (!codeEl) {
+                    return;
+                }
+
+                pre.classList.add('copy-ready');
+
+                const copyButton = document.createElement('button');
+                copyButton.type = 'button';
+                copyButton.className = 'copy-btn';
+                copyButton.textContent = 'Copy';
+                copyButton.setAttribute('aria-label', 'Copy command block');
+                pre.appendChild(copyButton);
+
+                copyButton.addEventListener('click', async () => {
+                    try {
+                        await navigator.clipboard.writeText(codeEl.innerText.trim());
+                        copyButton.textContent = 'Copied';
+                        showToast('Command copied');
+
+                        setTimeout(() => {
+                            copyButton.textContent = 'Copy';
+                        }, 1100);
+                    } catch (error) {
+                        copyButton.textContent = 'Failed';
+                        showToast('Copy failed');
+
+                        setTimeout(() => {
+                            copyButton.textContent = 'Copy';
+                        }, 1100);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
