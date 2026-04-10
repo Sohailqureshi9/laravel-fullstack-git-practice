@@ -13,7 +13,10 @@
 
     <main class="container">
         <header class="topbar">
-            <a class="brand" href="{{ route('home') }}">Git Learning Hub</a>
+            <div class="topbar-head">
+                <a class="brand" href="{{ route('home') }}">Git Learning Hub</a>
+                <p class="brand-subtitle">Practical Git roadmap from beginner to pro</p>
+            </div>
             <nav class="nav-links">
                 <a href="{{ route('about') }}">About</a>
                 <a href="{{ route('contact') }}">Contact</a>
@@ -438,7 +441,25 @@ git push origin fix/navbar-spacing</code></pre>
         </section>
 
         <footer class="footer">
-            <p>Built with Laravel • Keep practicing, keep shipping.</p>
+            <div class="footer-grid">
+                <section>
+                    <h3>Git Learning Hub</h3>
+                    <p>Structured and practical guide to build real Git confidence for individual and team projects.</p>
+                </section>
+                <section>
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#path">Learning Path</a></li>
+                        <li><a href="#month-roadmap">1-Month Plan</a></li>
+                        <li><a href="#troubleshooting">Troubleshooting</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Created By</h3>
+                    <p class="creator-name">Sohail Qureshi</p>
+                    <p>Keep practicing daily and ship better code with confidence.</p>
+                </section>
+            </div>
             <p class="footer-note">Updated {{ date('Y') }} • Version-ready workflow habits for beginner teams.</p>
         </footer>
     </main>
