@@ -66,8 +66,8 @@
                     <h2>Suggested Pace</h2>
                     <ul class="hero-list">
                         <li><span>Weeks 1-2</span><strong>Foundation and confidence</strong></li>
-                        <li><span>Weeks 3-4</span><strong>Branching and collaboration</strong></li>
-                        <li><span>Weeks 5-6</span><strong>Advanced recovery and optimization</strong></li>
+                        <li><span>Week 3</span><strong>Branching and collaboration</strong></li>
+                        <li><span>Week 4</span><strong>Advanced recovery and optimization</strong></li>
                     </ul>
                     <a class="inline-link" href="https://git-scm.com/book/en/v2" target="_blank"
                         rel="noopener noreferrer">
@@ -508,6 +508,13 @@ git push origin fix/navbar-spacing</code></pre>
                 } else {
                     setActiveLink(sectionEntries[0].target.id);
                 }
+
+                window.addEventListener('hashchange', () => {
+                    const hashId = window.location.hash.replace('#', '');
+                    if (hashId) {
+                        setActiveLink(hashId);
+                    }
+                });
             }
 
             const toast = document.getElementById('copy-toast');
@@ -527,6 +534,27 @@ git push origin fix/navbar-spacing</code></pre>
                 }, 1400);
             };
 
+            const copyTextWithFallback = async (text) => {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(text);
+                    return;
+                }
+
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                textArea.setAttribute('readonly', '');
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-9999px';
+                document.body.appendChild(textArea);
+                textArea.select();
+
+                try {
+                    document.execCommand('copy');
+                } finally {
+                    document.body.removeChild(textArea);
+                }
+            };
+
             document.querySelectorAll('pre').forEach((pre) => {
                 const codeEl = pre.querySelector('code');
                 if (!codeEl) {
@@ -544,7 +572,7 @@ git push origin fix/navbar-spacing</code></pre>
 
                 copyButton.addEventListener('click', async () => {
                     try {
-                        await navigator.clipboard.writeText(codeEl.innerText.trim());
+                        await copyTextWithFallback(codeEl.innerText.trim());
                         copyButton.textContent = 'Copied';
                         showToast('Command copied');
 

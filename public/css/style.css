@@ -22,6 +22,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 132px;
 }
 
 body {
@@ -881,6 +882,10 @@ button:focus-visible {
 }
 
 @media (max-width: 760px) {
+    html {
+        scroll-padding-top: 158px;
+    }
+
     body {
         padding: 14px;
     }
