@@ -27,7 +27,7 @@
         <section id="home" class="hero">
             <div class="hero-layout">
                 <div>
-                    <p class="hero-tag">Hands-on Git practice for beginners</p>
+                    <p class="hero-tag">Hands-on Git practice for beginners and junior developers</p>
                     <h1>Build confidence with Git, one command at a time</h1>
                     <p class="hero-copy">
                         Learn practical Git workflows through clear examples and copy-ready commands.
@@ -35,7 +35,7 @@
                     </p>
 
                     <div class="buttons">
-                        <a class="btn btn-primary" href="#commands">Start Learning</a>
+                        <a class="btn btn-primary" href="#commands">Start Practice</a>
                         <a class="btn btn-secondary" href="{{ route('about') }}">About Project</a>
                         <a class="btn btn-secondary" href="{{ route('contact') }}">Contact</a>
                     </div>
@@ -121,7 +121,7 @@
             <h2>30-Minute Daily Roadmap</h2>
             <div class="roadmap-grid">
                 <article class="roadmap-step">
-                    <span>05 min</span>
+                    <span>5 min</span>
                     <h3>Inspect repository</h3>
                     <p>Start with <code>git status</code> and <code>git log --oneline</code> to get context.</p>
                 </article>
@@ -171,6 +171,7 @@ git push origin fix/navbar-spacing</code></pre>
                 <li>Open pull requests early to gather feedback sooner.</li>
                 <li>Review code with context, tests, and clear suggestions.</li>
                 <li>Merge only after approvals and successful checks.</li>
+                <li>Delete merged branches to keep repository history clean.</li>
             </ul>
         </section>
 

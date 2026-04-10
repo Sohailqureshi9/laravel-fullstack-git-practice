@@ -247,6 +247,11 @@ h1 {
     background: #fff;
 }
 
+.btn-secondary:hover {
+    border-color: #c8d8e6;
+    background: #f8fbfd;
+}
+
 .section {
     padding: 10px 28px 26px;
 }
@@ -360,6 +365,7 @@ pre {
     border-radius: 10px;
     border: 1px solid #e7ecf2;
     background: #f4f8fc;
+    scrollbar-width: thin;
 }
 
 pre code {
@@ -491,5 +497,13 @@ pre code {
     .roadmap-grid,
     .arena-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
     }
 }
