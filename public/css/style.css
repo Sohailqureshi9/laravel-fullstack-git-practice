@@ -8,6 +8,7 @@
     --muted: #5d6d80;
     --brand: #0b7a83;
     --brand-strong: #07545e;
+    --accent: #f2a93b;
     --line: #d7e5ef;
     --card: #ffffff;
     --soft-shadow: 0 24px 60px rgba(13, 38, 58, 0.14);
@@ -30,6 +31,7 @@ body {
     background:
         radial-gradient(circle at 12% 14%, rgba(245, 153, 31, 0.2), transparent 32%),
         radial-gradient(circle at 86% 12%, rgba(11, 122, 131, 0.24), transparent 30%),
+        radial-gradient(circle at 78% 86%, rgba(242, 169, 59, 0.18), transparent 34%),
         linear-gradient(138deg, var(--bg-1), var(--bg-2));
     padding: 28px;
 }
@@ -44,6 +46,31 @@ body {
     z-index: 0;
 }
 
+.page-bg::before,
+.page-bg::after {
+    content: "";
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.25;
+    animation: float-blob 9s ease-in-out infinite;
+}
+
+.page-bg::before {
+    top: -80px;
+    right: 4%;
+    background: rgba(11, 122, 131, 0.35);
+}
+
+.page-bg::after {
+    bottom: -120px;
+    left: 6%;
+    background: rgba(242, 169, 59, 0.35);
+    animation-delay: 1.2s;
+}
+
 .container {
     position: relative;
     z-index: 1;
@@ -52,7 +79,7 @@ body {
     background: var(--paper);
     border: 1px solid var(--line);
     border-radius: 26px;
-    box-shadow: var(--soft-shadow);
+    box-shadow: var(--soft-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.65);
     overflow: hidden;
 }
 
@@ -129,6 +156,7 @@ body {
     border-radius: 999px;
     font-size: 0.85rem;
     margin-bottom: 14px;
+    box-shadow: 0 8px 20px rgba(11, 122, 131, 0.15);
 }
 
 h1 {
@@ -243,6 +271,7 @@ h1 {
 
 .btn-primary:hover {
     background: var(--brand-strong);
+    box-shadow: 0 14px 28px rgba(11, 122, 131, 0.4);
 }
 
 .btn-secondary {
@@ -345,6 +374,26 @@ h2::before {
     box-shadow: 0 10px 24px rgba(21, 43, 64, 0.06);
 }
 
+.month-card,
+.map-col,
+.roadmap-step,
+.scenario-card,
+.issue-card,
+.arena-panel {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.month-card:hover,
+.map-col:hover,
+.roadmap-step:hover,
+.scenario-card:hover,
+.issue-card:hover,
+.arena-panel:hover {
+    transform: translateY(-3px);
+    border-color: #bfd9e8;
+    box-shadow: 0 14px 30px rgba(21, 43, 64, 0.11);
+}
+
 .month-card h3 {
     margin-bottom: 8px;
 }
@@ -360,7 +409,7 @@ h2::before {
     margin-bottom: 8px;
     padding: 4px 10px;
     border-radius: 999px;
-    background: #e7f6fb;
+    background: linear-gradient(180deg, #ecfbff, #e7f6fb);
     border: 1px solid #c8e7f3;
     color: var(--brand-strong);
     font-size: 0.8rem;
@@ -450,7 +499,7 @@ code {
     display: inline-block;
     padding: 4px 10px;
     border-radius: 999px;
-    background: #e7f6fb;
+    background: linear-gradient(180deg, #ecfbff, #e7f6fb);
     color: var(--brand-strong);
     font-size: 0.82rem;
     margin-bottom: 10px;
@@ -502,7 +551,7 @@ code {
     border-radius: 999px;
     font-size: 0.8rem;
     color: var(--brand-strong);
-    background: #e7f6fb;
+    background: linear-gradient(180deg, #ecfbff, #e7f6fb);
     border: 1px solid #c8e7f3;
 }
 
@@ -689,6 +738,18 @@ button:focus-visible {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes float-blob {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+
+    50% {
+        transform: translateY(-14px) translateX(8px);
     }
 }
 
