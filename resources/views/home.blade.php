@@ -17,9 +17,10 @@
             <nav class="nav-links">
                 <a href="{{ route('about') }}">About</a>
                 <a href="{{ route('contact') }}">Contact</a>
+                <a href="#path">Path</a>
                 <a href="#commands">Commands</a>
                 <a href="#workflow">Workflow</a>
-                <a href="#roadmap">Roadmap</a>
+                <a href="#projects">Projects</a>
                 <a href="https://git-scm.com/doc" target="_blank" rel="noopener noreferrer">Docs</a>
             </nav>
         </header>
@@ -28,40 +29,40 @@
             <div class="hero-layout">
                 <div>
                     <p class="hero-tag">Hands-on Git practice for beginners and junior developers</p>
-                    <h1>Build confidence with Git, one command at a time</h1>
+                    <h1>Your Complete Git Guide: Beginner to Pro</h1>
                     <p class="hero-copy">
-                        Learn practical Git workflows through clear examples and copy-ready commands.
-                        Start with the fundamentals, then level up with branching, pull requests, and team habits.
+                        Follow a clear roadmap from first commit to advanced team workflows.
+                        Each section gives you what to learn, what to practice, and how to level up faster.
                     </p>
 
                     <div class="buttons">
-                        <a class="btn btn-primary" href="#commands">Start Practice</a>
+                        <a class="btn btn-primary" href="#path">Start Guide</a>
                         <a class="btn btn-secondary" href="{{ route('about') }}">About Project</a>
                         <a class="btn btn-secondary" href="{{ route('contact') }}">Contact</a>
                     </div>
 
                     <div class="hero-metrics" aria-label="Learning highlights">
                         <div>
-                            <strong>12+</strong>
-                            <span>Core commands</span>
+                            <strong>20+</strong>
+                            <span>Commands covered</span>
                         </div>
                         <div>
-                            <strong>3</strong>
-                            <span>Workflow stages</span>
+                            <strong>3 Levels</strong>
+                            <span>Beginner to pro</span>
                         </div>
                         <div>
-                            <strong>30 min</strong>
-                            <span>Daily routine</span>
+                            <strong>4 Projects</strong>
+                            <span>Hands-on practice</span>
                         </div>
                     </div>
                 </div>
 
                 <aside class="hero-panel" aria-label="Learning pace overview">
-                    <h2>Your Learning Pace</h2>
+                    <h2>Suggested Pace</h2>
                     <ul class="hero-list">
-                        <li><span>Week 1</span><strong>Git basics and commits</strong></li>
-                        <li><span>Week 2</span><strong>Branching and merges</strong></li>
-                        <li><span>Week 3</span><strong>Pull requests and reviews</strong></li>
+                        <li><span>Weeks 1-2</span><strong>Foundation and confidence</strong></li>
+                        <li><span>Weeks 3-4</span><strong>Branching and collaboration</strong></li>
+                        <li><span>Weeks 5-6</span><strong>Advanced recovery and optimization</strong></li>
                     </ul>
                     <a class="inline-link" href="https://git-scm.com/book/en/v2" target="_blank"
                         rel="noopener noreferrer">
@@ -71,69 +72,111 @@
             </div>
         </section>
 
+        <section id="path" class="section">
+            <h2>Learning Path: Beginner to Pro</h2>
+            <div class="level-grid">
+                <article class="level-card">
+                    <p class="level-badge">Level 1</p>
+                    <h3>Beginner Foundations</h3>
+                    <p>Understand repositories, commits, and safe day-to-day workflow.</p>
+                    <ul class="list compact-list">
+                        <li>Create and clone repositories.</li>
+                        <li>Track changes with add and commit.</li>
+                        <li>Read history using status and log.</li>
+                    </ul>
+                </article>
+                <article class="level-card">
+                    <p class="level-badge">Level 2</p>
+                    <h3>Intermediate Collaboration</h3>
+                    <p>Work in branches, handle merges, and ship through pull requests.</p>
+                    <ul class="list compact-list">
+                        <li>Create feature branches per task.</li>
+                        <li>Merge and resolve simple conflicts.</li>
+                        <li>Follow review-ready PR habits.</li>
+                    </ul>
+                </article>
+                <article class="level-card">
+                    <p class="level-badge">Level 3</p>
+                    <h3>Pro Workflow Mastery</h3>
+                    <p>Handle mistakes, optimize history, and maintain stable team flow.</p>
+                    <ul class="list compact-list">
+                        <li>Recover with restore, reset, and reflog.</li>
+                        <li>Use rebase responsibly for clean history.</li>
+                        <li>Automate quality checks before pushing.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
         <section id="commands" class="section">
-            <h2>Essential Commands</h2>
-            <div class="cards-grid">
-                <article class="card">
-                    <h3>Initialize Repo</h3>
-                    <code>git init</code>
-                    <p>Creates a new local repository in your project folder.</p>
+            <h2>Command Map by Skill Level</h2>
+            <div class="command-map-grid">
+                <article class="map-col">
+                    <h3>Beginner</h3>
+                    <ul class="list compact-list">
+                        <li><code>git init</code></li>
+                        <li><code>git clone &lt;url&gt;</code></li>
+                        <li><code>git status</code></li>
+                        <li><code>git add .</code></li>
+                        <li><code>git commit -m "message"</code></li>
+                    </ul>
                 </article>
-                <article class="card">
-                    <h3>Track Changes</h3>
-                    <code>git add .</code>
-                    <p>Adds all modified files to the staging area.</p>
+                <article class="map-col">
+                    <h3>Intermediate</h3>
+                    <ul class="list compact-list">
+                        <li><code>git checkout -b feature/x</code></li>
+                        <li><code>git pull origin main</code></li>
+                        <li><code>git merge feature/x</code></li>
+                        <li><code>git push origin feature/x</code></li>
+                        <li><code>git branch -d feature/x</code></li>
+                    </ul>
                 </article>
-                <article class="card">
-                    <h3>Save Snapshot</h3>
-                    <code>git commit -m "message"</code>
-                    <p>Records staged changes with a meaningful commit message.</p>
-                </article>
-                <article class="card">
-                    <h3>Sync Remote</h3>
-                    <code>git push origin main</code>
-                    <p>Uploads local commits to your remote branch.</p>
-                </article>
-                <article class="card">
-                    <h3>Check State</h3>
-                    <code>git status</code>
-                    <p>Shows changed, staged, and untracked files before you commit.</p>
-                </article>
-                <article class="card">
-                    <h3>Review History</h3>
-                    <code>git log --oneline --graph --decorate</code>
-                    <p>Visualizes commit history to help you understand branch progress.</p>
+                <article class="map-col">
+                    <h3>Pro</h3>
+                    <ul class="list compact-list">
+                        <li><code>git rebase -i HEAD~5</code></li>
+                        <li><code>git reflog</code></li>
+                        <li><code>git restore --staged &lt;file&gt;</code></li>
+                        <li><code>git cherry-pick &lt;hash&gt;</code></li>
+                        <li><code>git bisect start</code></li>
+                    </ul>
                 </article>
             </div>
         </section>
 
         <section id="workflow" class="section workflow">
-            <h2>Simple Daily Workflow</h2>
+            <h2>Daily Workflow You Can Repeat</h2>
             <ol>
                 <li>Pull latest updates: <code>git pull origin main</code></li>
                 <li>Create branch: <code>git checkout -b feature/my-change</code></li>
                 <li>Make changes and commit: <code>git add . && git commit -m "feat: update"</code></li>
                 <li>Push branch: <code>git push origin feature/my-change</code></li>
+                <li>Create pull request and request review.</li>
             </ol>
         </section>
 
-        <section id="roadmap" class="section roadmap">
-            <h2>30-Minute Daily Roadmap</h2>
+        <section id="projects" class="section roadmap">
+            <h2>Project-Based Upgrade Plan</h2>
             <div class="roadmap-grid">
                 <article class="roadmap-step">
-                    <span>5 min</span>
-                    <h3>Inspect repository</h3>
-                    <p>Start with <code>git status</code> and <code>git log --oneline</code> to get context.</p>
+                    <span>Project 1</span>
+                    <h3>Personal Notes Repo</h3>
+                    <p>Create commits daily and practice clean commit messages for one week.</p>
                 </article>
                 <article class="roadmap-step">
-                    <span>15 min</span>
-                    <h3>Make one focused change</h3>
-                    <p>Edit a small piece, stage only relevant files, and commit clearly.</p>
+                    <span>Project 2</span>
+                    <h3>Feature Branch Challenge</h3>
+                    <p>Build 3 small features in separate branches and merge with conflict handling.</p>
                 </article>
                 <article class="roadmap-step">
-                    <span>10 min</span>
-                    <h3>Push and review</h3>
-                    <p>Push branch, open PR, and self-review before requesting feedback.</p>
+                    <span>Project 3</span>
+                    <h3>Team Pull Request Simulation</h3>
+                    <p>Open PR, review feedback, push follow-up commits, and merge safely.</p>
+                </article>
+                <article class="roadmap-step">
+                    <span>Project 4</span>
+                    <h3>Recovery Drill</h3>
+                    <p>Intentionally break history and recover using reflog, reset, and cherry-pick.</p>
                 </article>
             </div>
         </section>
