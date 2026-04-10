@@ -39,6 +39,21 @@
                         <a class="btn btn-secondary" href="{{ route('about') }}">About Project</a>
                         <a class="btn btn-secondary" href="{{ route('contact') }}">Contact</a>
                     </div>
+
+                    <div class="hero-metrics" aria-label="Learning highlights">
+                        <div>
+                            <strong>12+</strong>
+                            <span>Core commands</span>
+                        </div>
+                        <div>
+                            <strong>3</strong>
+                            <span>Workflow stages</span>
+                        </div>
+                        <div>
+                            <strong>30 min</strong>
+                            <span>Daily routine</span>
+                        </div>
+                    </div>
                 </div>
 
                 <aside class="hero-panel" aria-label="Learning pace overview">
@@ -123,6 +138,28 @@
             </div>
         </section>
 
+        <section class="section arena" id="arena">
+            <h2>Practice Arena</h2>
+            <div class="arena-grid">
+                <article class="arena-panel">
+                    <h3>Example Session</h3>
+                    <pre><code>git checkout -b fix/navbar-spacing
+git add resources/views/home.blade.php
+git commit -m "fix: improve home page spacing"
+git push origin fix/navbar-spacing</code></pre>
+                </article>
+                <article class="arena-panel">
+                    <h3>Before You Push</h3>
+                    <ul class="list compact-list">
+                        <li>Run a quick <code>git status</code> check.</li>
+                        <li>Confirm commit message describes the change.</li>
+                        <li>Push only the branch you are working on.</li>
+                        <li>Open PR with short and clear summary.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
         <section class="section team-practice">
             <h2>Team Practice Checklist</h2>
             <p>
@@ -139,6 +176,7 @@
 
         <footer class="footer">
             <p>Built with Laravel • Keep practicing, keep shipping.</p>
+            <p class="footer-note">Updated {{ date('Y') }} • Version-ready workflow habits for beginner teams.</p>
         </footer>
     </main>
 </body>
