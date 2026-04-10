@@ -85,8 +85,9 @@ body {
 
 .topbar {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
     padding: 18px 28px;
     border-bottom: 1px solid var(--line);
     background: rgba(255, 255, 255, 0.9);
@@ -101,12 +102,19 @@ body {
     color: var(--ink);
     font-weight: 800;
     letter-spacing: 0.2px;
+    width: fit-content;
 }
 
 .nav-links {
     display: flex;
-    gap: 18px;
-    flex-wrap: wrap;
+    gap: 8px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    padding: 6px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: rgba(246, 251, 253, 0.95);
 }
 
 .nav-links a {
@@ -115,14 +123,16 @@ body {
     font-size: 0.9rem;
     font-weight: 500;
     position: relative;
-    padding: 6px 10px;
+    padding: 8px 12px;
     border-radius: 999px;
     transition: color 0.2s ease, background 0.2s ease;
+    white-space: nowrap;
+    flex: 0 0 auto;
 }
 
 .nav-links a:hover {
     color: var(--brand-strong);
-    background: #eaf6f8;
+    background: #e5f4f7;
 }
 
 .nav-links a::after {
@@ -131,6 +141,15 @@ body {
 
 .nav-links a:hover::after {
     transform: none;
+}
+
+.nav-links::-webkit-scrollbar {
+    height: 6px;
+}
+
+.nav-links::-webkit-scrollbar-thumb {
+    background: #c8dbe7;
+    border-radius: 999px;
 }
 
 .hero {
@@ -767,14 +786,14 @@ button:focus-visible {
     }
 
     .topbar {
-        flex-direction: column;
-        gap: 10px;
-        align-items: flex-start;
+        gap: 8px;
+        align-items: stretch;
     }
 
     .nav-links {
-        gap: 12px;
         width: 100%;
+        gap: 6px;
+        padding: 5px;
     }
 
     .nav-links a {
